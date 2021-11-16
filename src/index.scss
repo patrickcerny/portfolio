@@ -1,0 +1,20 @@
+@font-face {
+  font-family: Tahoma;
+  src: url("./assets/fonts/Tahoma.ttf");
+  font-weight: bold;
+}
+
+body {
+  margin: 0;
+  font-family: Tahoma;
+}
+
+.clickable {
+  cursor: pointer;
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
+
+.shadow {
+}
