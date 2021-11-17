@@ -7,8 +7,8 @@ const WindowContainer = (props: WindowContainerType) => {
   const actionsRef = useRef(null as any);
   const windowRef = useRef(null as any);
 
-  const [windowX, setWindowX] = useState(80);
-  const [windowY, setWindowY] = useState(80);
+  const [windowX, setWindowX] = useState(Math.floor(Math.random() * 100));
+  const [windowY, setWindowY] = useState(Math.floor(Math.random() * 100));
   const [windowXclick, setWindowXclick] = useState(0);
   const [windowYclick, setWindowYclick] = useState(0);
   const mousePosition = useMousePosition();
@@ -30,6 +30,9 @@ const WindowContainer = (props: WindowContainerType) => {
     setDragging(false);
   };
 
+  const handleMinimize = () => {};
+  const handleToggleSize = () => {};
+  const handleClose = () => {};
   return (
     <div
       className="windowContainer-main"
@@ -45,7 +48,22 @@ const WindowContainer = (props: WindowContainerType) => {
         ref={actionsRef}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
-      ></div>
+      >
+        <div className="windowContainer-main__actions__container">
+          <div
+            className="windowContainer-main__actions__container__minimize"
+            onClick={handleMinimize}
+          ></div>
+          <div
+            className="windowContainer-main__actions__container__toggleSize"
+            onClick={handleToggleSize}
+          ></div>
+          <div
+            className="windowContainer-main__actions__container__close"
+            onClick={handleClose}
+          ></div>
+        </div>
+      </div>
       <div className="windowContainer-main__menu"></div>
       <div className="windowContainer-main__router-outlet">
         {props.children}

@@ -26,6 +26,89 @@
     );
     height: 30px;
     width: 100%;
+    display: flex;
+
+    &__container {
+      margin: 0 2px 0 auto;
+      display: flex;
+      height: 100%;
+      align-items: center;
+
+      div {
+        height: 22px;
+        width: 22px;
+        border-radius: 3px;
+        border: 1px solid white;
+        box-shadow: rgb(70, 70, 255) 0px -1px 2px 1px inset;
+        margin: 0 0.5px;
+        cursor: pointer;
+      }
+
+      &__minimize {
+        box-shadow: rgb(70, 70, 255) 0px -1px 2px 1px inset;
+        background-image: radial-gradient(
+          circle at 90% 90%,
+          rgb(0, 84, 233) 0%,
+          rgb(34, 99, 213) 55%,
+          rgb(68, 121, 228) 70%,
+          rgb(163, 187, 236) 90%,
+          white 100%
+        );
+        &::before {
+          content: "";
+          position: absolute;
+          right: 64px;
+          top: 19px;
+          height: 3px;
+          width: 8px;
+          background-color: white;
+        }
+      }
+      &__toggleSize {
+        &::before {
+          content: "";
+          position: absolute;
+          display: block;
+          right: 34.5px;
+          top: 10px;
+          box-shadow: white 0px 3px inset, white 0px 0px 0px 1px inset;
+          height: 12px;
+          width: 12px;
+        }
+      }
+      &__close {
+        box-shadow: rgb(218, 70, 0) 0px -1px 2px 1px inset !important;
+        background-image: radial-gradient(
+          circle at 90% 90%,
+          rgb(204, 70, 0) 0%,
+          rgb(220, 101, 39) 55%,
+          rgb(205, 117, 70) 70%,
+          rgb(255, 204, 178) 90%,
+          white 100%
+        );
+        &::before {
+          content: "";
+          position: absolute;
+          right: 14px;
+          top: 8px;
+          transform: rotate(45deg);
+          height: 16px;
+          width: 2px;
+          background-color: white;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          right: 14px;
+          top: 8px;
+          transform: rotate(-45deg);
+          height: 16px;
+          width: 2px;
+          background-color: white;
+        }
+      }
+    }
   }
   &__menu {
     width: 100%;
