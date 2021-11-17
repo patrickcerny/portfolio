@@ -3,7 +3,7 @@
   width: 100vw;
   position: absolute;
   display: flex;
-  user-select: none;
+
   background: linear-gradient(
     rgb(31, 47, 134) 0px,
     rgb(49, 101, 196) 3%,
@@ -197,7 +197,6 @@
 
     &__item {
       height: 60%;
-      user-select: none;
 
       display: flex;
       align-items: center;

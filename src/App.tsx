@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.scss";
 import DesktopItem from "./components/desktopItem/DesktopItem";
 import Taskbar from "./components/taskbar/Taskbar";
-import WindowStore from "./utils/stores/activeWindow";
+import WindowContainer from "./components/windowContainer/WindowContainer";
 
 import mainPrograms from "./utils/data/mainPrograms";
 
@@ -20,6 +20,15 @@ function App() {
           );
         })}
       </div>
+      <WindowContainer menu={[{ name: "Test" }, { name: "Test" }]}>
+        <div
+          style={{
+            minWidth: "300px",
+            minHeight: "300px",
+            backgroundColor: "red",
+          }}
+        ></div>
+      </WindowContainer>
     </div>
   );
 }
