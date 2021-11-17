@@ -1,5 +1,5 @@
 import { useState } from "react";
-import TaskbarItemType from "../../../utils/types/TaskbarItem";
+import TaskbarItemType from "../../../utils/types/TaskbarItemType";
 import "./TaskbarItem.scss";
 
 const TaskbarItem = (props: TaskbarItemType) => {

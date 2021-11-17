@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import "./Taskbar.scss";
 import TaskbarItem from "./taskbarItem/TaskbarItem";
+import Dog from "../../assets/img/dog.jpg";
+import LogOFf from "../../assets/img/logOff.png";
+import TurnOFf from "../../assets/img/turnOff.png";
+import WindowStore from "../../utils/stores/activeWindow";
 
 const Taskbar = () => {
   const [time, setTime] = useState("");
   const [menuVisible, setMenuVisible] = useState(true);
-
+  const [windowsStore] = useState(() => new WindowStore());
   function startTime() {
     const today = new Date();
     let h = today.getHours();
@@ -26,6 +30,7 @@ const Taskbar = () => {
     startTime();
     return () => {};
   });
+
   return (
     <>
       <div className="taskbar-main">
@@ -49,9 +54,30 @@ const Taskbar = () => {
       </div>
       <div
         className="windowsMenu-main"
-        style={{ display: menuVisible ? "block" : "none" }}
+        style={{ display: menuVisible ? "flex" : "none" }}
       >
-        <div className="windowsMenu-main__top-container"></div>
+        <div className="windowsMenu-main__top-container">
+          <img src={Dog} alt="Windows User dog" />
+          <span>Patrick Cerny</span>
+        </div>
+        <hr className="windowsMenu-main__hr-orange" />
+        <div className="windowsMenu-main__middle-container">
+          <div className="windowsMenu-main__middle-container__left"></div>
+          <div className="windowsMenu-main__middle-container__right"></div>
+        </div>
+        <div className="windowsMenu-main__bottom-container">
+          <div className="windowsMenu-main__bottom-container__item">
+            <img src={LogOFf} alt="Log off Icon" />
+            <span>Log Off</span>
+          </div>
+          <div
+            className="windowsMenu-main__bottom-container__item"
+            id="turnOff"
+          >
+            <img src={TurnOFf} alt="Turn off Icon" />
+            <span>Turn Off Computer</span>
+          </div>
+        </div>
       </div>
     </>
   );
