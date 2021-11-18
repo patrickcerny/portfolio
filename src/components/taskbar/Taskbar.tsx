@@ -8,7 +8,7 @@ import WindowStore from "../../utils/stores/activeWindow";
 
 const Taskbar = () => {
   const [time, setTime] = useState("");
-  const [menuVisible, setMenuVisible] = useState(true);
+  const [menuVisible, setMenuVisible] = useState(false);
   const [windowsStore] = useState(() => new WindowStore());
   function startTime() {
     const today = new Date();

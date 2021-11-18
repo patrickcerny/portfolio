@@ -3,6 +3,7 @@ import "./App.scss";
 import DesktopItem from "./components/desktopItem/DesktopItem";
 import Taskbar from "./components/taskbar/Taskbar";
 import WindowContainer from "./components/windowContainer/WindowContainer";
+import InternetExplorer from "./programs/internetExplorer/InternetExplorer";
 
 import mainPrograms from "./utils/data/mainPrograms";
 
@@ -21,13 +22,7 @@ function App() {
         })}
       </div>
       <WindowContainer menu={[{ name: "Test" }, { name: "Test" }]}>
-        <div
-          style={{
-            minWidth: "300px",
-            minHeight: "300px",
-            backgroundColor: "red",
-          }}
-        ></div>
+        <InternetExplorer />
       </WindowContainer>
     </div>
   );

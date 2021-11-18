@@ -3,7 +3,7 @@
   width: 100vw;
   position: absolute;
   display: flex;
-
+  z-index: 999999999;
   background: linear-gradient(
     rgb(31, 47, 134) 0px,
     rgb(49, 101, 196) 3%,
@@ -68,6 +68,7 @@
 }
 
 .windowsMenu-main {
+  z-index: 999999999;
   position: absolute;
   height: 450px;
   width: 350px;
