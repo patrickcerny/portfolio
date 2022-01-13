@@ -1,12 +1,14 @@
 import "./InternetExplorer.scss";
 
 const InternetExplorer = () => {
+  //const [location, setLocation] = useState("https://bing.com");
+
   return (
     <div className="internetExplorer-main">
       <div className="internetExplorer-main__tools"></div>
       <iframe
         className="internetExplorer-main__window"
-        src="https://bing.com"
+        src={"https://bing.com"}
         frameBorder="0"
         title="Internet Explorer"
         height="100%"

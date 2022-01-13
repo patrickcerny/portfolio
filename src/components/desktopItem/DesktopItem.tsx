@@ -1,7 +1,10 @@
 import "./DesktopItem.scss";
 import DesktopItemType from "../../utils/types/DesktopItemType";
 import { useRef, useState } from "react";
-const DesktopItem = (props: DesktopItemType) => {
+import { windowStore } from "../../utils/stores/windowStore";
+import { observer } from "mobx-react-lite";
+
+const DesktopItem = observer((props: DesktopItemType) => {
   const [clicked, setClicked] = useState(false);
 
   const ref = useRef(null as any);
@@ -9,7 +12,9 @@ const DesktopItem = (props: DesktopItemType) => {
     setClicked(true);
   };
 
-  const handleDoubleClick = () => {};
+  const handleDoubleClick = () => {
+    windowStore.addWindow(props.type);
+  };
 
   const checkIfClickedOutside = (e: any) => {
     if (clicked && ref.current && !ref.current.contains(e.target)) {
@@ -28,10 +33,10 @@ const DesktopItem = (props: DesktopItemType) => {
       onClick={handleSingleClick}
       onDoubleClick={handleDoubleClick}
     >
-      <img src={props.image} alt={props.name} />
-      <span>{props.name}</span>
+      <img src={props.image} alt={props.type} />
+      <span>{props.type}</span>
     </div>
   );
-};
+});
 
 export default DesktopItem;

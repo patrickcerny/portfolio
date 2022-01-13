@@ -1,4 +1,8 @@
+import programsEnum from "../enums/programsEnum";
+
 export default interface MainProgramType {
   image: any;
-  name: string;
+  type: programsEnum;
+  component: JSX.Element;
+  ref?: React.RefObject<any>;
 }

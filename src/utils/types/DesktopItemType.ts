@@ -1,4 +1,6 @@
+import ProgramsEnum from "../enums/programsEnum";
+
 export default interface DesktopItemType {
   image: any;
-  name: string;
+  type: ProgramsEnum;
 }

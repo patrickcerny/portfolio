@@ -1,4 +1,6 @@
+import ProgramsEnum from "../enums/programsEnum";
+
 export default interface TaskbarItemType {
-  name: string;
   icon: any;
+  type: ProgramsEnum;
 }

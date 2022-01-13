@@ -7,6 +7,10 @@
   min-width: 100px;
   background-color: rgb(8, 49, 217);
   padding: 1px;
+  overflow: auto;
+  resize: both;
+  overflow-y: hidden;
+
   &__actions {
     background: linear-gradient(
       rgb(0, 88, 238) 0%,
@@ -56,7 +60,7 @@
           white 100%
         );
         &::before {
-          content: "";
+          content: '';
           position: absolute;
           right: 60px;
           top: 19px;
@@ -76,7 +80,7 @@
           white 100%
         );
         &::before {
-          content: "";
+          content: '';
           position: absolute;
           display: block;
           right: 32px;
@@ -97,7 +101,7 @@
           white 100%
         );
         &::before {
-          content: "";
+          content: '';
           position: absolute;
           right: 14px;
           top: 8px;
@@ -108,7 +112,7 @@
         }
 
         &::after {
-          content: "";
+          content: '';
           position: absolute;
           right: 14px;
           top: 8px;
