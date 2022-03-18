@@ -130,5 +130,6 @@
     background-color: rgb(237, 234, 213);
   }
   &__router-outlet {
+    height: calc(100% - 50px);
   }
 }

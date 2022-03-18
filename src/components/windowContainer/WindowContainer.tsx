@@ -3,16 +3,15 @@ import React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { useMousePosition } from '../../utils/hooks/MousePosition';
 import { windowStore } from '../../utils/stores/windowStore';
+import { zIndexStore } from '../../utils/stores/zIndexStore';
 import WindowContainerType from '../../utils/types/WindowContainerType';
 import './WindowContainer.scss';
 
 const WindowContainer = observer((props: WindowContainerType) => {
   const actionsRef = useRef(null as any);
   const windowRef = useRef(null as any);
-
   const [windowX, setWindowX] = useState(Math.floor(Math.random() * 100));
   const [windowY, setWindowY] = useState(Math.floor(Math.random() * 100));
-
   const [windowXclick, setWindowXclick] = useState(0);
   const [windowYclick, setWindowYclick] = useState(0);
   const [fullscreen, setFullscreen] = useState(false);
@@ -23,7 +22,6 @@ const WindowContainer = observer((props: WindowContainerType) => {
     height: size.height,
   });
   const [dragging, setDragging] = useState(false);
-
   const mousePosition = useMousePosition();
 
   const handleMouseDown = (e: any) => {
@@ -69,12 +67,20 @@ const WindowContainer = observer((props: WindowContainerType) => {
     windowStore.removeWindow(props.type);
   };
 
+  const handleWindowClick = () => {
+    windowRef.current.style.zIndex = zIndexStore.zIndex + 1;
+    zIndexStore.incrementZIndex();
+    windowRef.current.focus();
+  };
+
   useEffect(() => {
     return () => {};
   }, [props.type]);
+
   return (
     <div
-      className="windowContainer-main"
+      onMouseDown={handleWindowClick}
+      className='windowContainer-main'
       ref={windowRef}
       style={
         !windowStore.isWindowShown(props.type)
@@ -95,28 +101,28 @@ const WindowContainer = observer((props: WindowContainerType) => {
       }
     >
       <div
-        className="windowContainer-main__actions"
+        className='windowContainer-main__actions'
         ref={actionsRef}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
       >
-        <div className="windowContainer-main__actions__container">
+        <div className='windowContainer-main__actions__container'>
           <button
-            className="windowContainer-main__actions__container__minimize actionButton"
+            className='windowContainer-main__actions__container__minimize actionButton'
             onClick={handleMinimize}
           ></button>
           <button
-            className="windowContainer-main__actions__container__toggleSize actionButton"
+            className='windowContainer-main__actions__container__toggleSize actionButton'
             onClick={handleToggleSize}
           ></button>
           <button
-            className="windowContainer-main__actions__container__close actionButton"
+            className='windowContainer-main__actions__container__close actionButton'
             onClick={handleClose}
           ></button>
         </div>
       </div>
-      <div className="windowContainer-main__menu"></div>
-      <div className="windowContainer-main__router-outlet">
+      <div className='windowContainer-main__menu'></div>
+      <div className='windowContainer-main__router-outlet'>
         {props.children}
       </div>
     </div>

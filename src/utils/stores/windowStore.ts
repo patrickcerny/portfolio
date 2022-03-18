@@ -1,14 +1,12 @@
 import { makeAutoObservable } from 'mobx';
 import React from 'react';
 import ProgramsEnum from '../enums/programsEnum';
-import WindowStoreType from '../types/windowStoreType';
+import WindowStoreType from '../types/WindowStoreType';
 
 class WindowStore {
   storeKey: string = 'windowStore' as const;
 
-  activeWindows: WindowStoreType[] = [
-    { type: ProgramsEnum.InternetExplorer, active: true, shown: true },
-  ];
+  activeWindows: WindowStoreType[] = [];
   isWindowShown(program: ProgramsEnum) {
     const index = this.activeWindows.findIndex(
       (window) => window.type === program
