@@ -5,8 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'mobx-react';
 import { windowStore } from './utils/stores/windowStore';
+import { zIndexStore } from './utils/stores/zIndexStore';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 const stores = {
   windowStore,
+  zIndexStore,
 };
 
 ReactDOM.render(
