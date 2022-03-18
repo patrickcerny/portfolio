@@ -1,7 +1,6 @@
 import { makeAutoObservable } from 'mobx';
 import React from 'react';
 import ProgramsEnum from '../enums/programsEnum';
-import WindowStoreType from '../types/WindowStoreType';
 
 class WindowStore {
   storeKey: string = 'windowStore' as const;
